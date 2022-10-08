@@ -1,0 +1,17 @@
+const updateTicket = async (req, res) => {
+  try {
+    const updatedTicket = await BusTicket.findByIdAndUpdate(
+      '633450ec5135a30a6b252501',
+      req.body,
+      {
+        new: true,
+      }
+    );
+    res.status(200).send({
+      status: 'successful',
+      data: updatedTicket,
+    });
+  } catch (e) {
+    res.status(404).send(e.message);
+  }
+};
